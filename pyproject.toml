@@ -1,0 +1,27 @@
+[project]
+name = "player-value-model"
+version = "0.1.0"
+description = "Player lifetime value and retention models on real bwin sports-betting data, with PySpark features"
+requires-python = ">=3.10"
+dependencies = [
+    "pyspark==3.5.3",
+    "setuptools",
+    "pandas>=2.2,<3",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "scikit-learn>=1.4",
+    "pyarrow>=15",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "BLE", "ISC"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

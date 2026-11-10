@@ -1,0 +1,9 @@
+data/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+results/run_log.txt
+spark-warehouse/
+metastore_db/
+derby.log
