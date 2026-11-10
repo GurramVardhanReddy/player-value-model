@@ -1,0 +1,197 @@
+{
+  "data": {
+    "players": 41247,
+    "first_stake_range": [
+      "2005-02-01",
+      "2005-06-03"
+    ],
+    "share_active_next_year": 0.6909835866850923,
+    "turnover_next_year": 68946881.9377,
+    "ggr_next_year": 6405658.074641999,
+    "share_of_ggr_from_top10pct_players_actual": 0.965788092851608,
+    "house_margin_fixed_odds": 0.12877042118335458,
+    "house_margin_live": 0.06639774192466674
+  },
+  "cv5": {
+    "players": 41247,
+    "turnover": {
+      "run_rate": {
+        "spearman": 0.5229690229014533,
+        "top10_share": 0.6730014250148105,
+        "top1_share": 0.29441044872256544,
+        "norm_gini": 0.703296375789674,
+        "total_pred_vs_actual": 1.4837210977375184
+      },
+      "bgnbd_gamma_gamma": {
+        "spearman": 0.3685432483054308,
+        "top10_share": 0.6593523550314814,
+        "top1_share": 0.29540252544130385,
+        "norm_gini": 0.668329601809776,
+        "total_pred_vs_actual": 0.4916112770832757
+      },
+      "gbm_poisson": {
+        "spearman": 0.4562378185218176,
+        "top10_share": 0.7078925739702299,
+        "top1_share": 0.2701743133580988,
+        "norm_gini": 0.8304682205746085,
+        "total_pred_vs_actual": 0.9117975011833963
+      }
+    },
+    "ggr": {
+      "run_rate": {
+        "spearman": 0.36858977719123437,
+        "top10_share": 0.6134066411004305,
+        "top1_share": 0.2364866291937792,
+        "norm_gini": 0.5015937104238135,
+        "total_pred_vs_actual": 1.5425857780142715
+      },
+      "bgnbd_gamma_gamma": {
+        "spearman": 0.251892112915849,
+        "top10_share": 0.5915344204996097,
+        "top1_share": 0.2394891634055471,
+        "norm_gini": 0.46324314859138505,
+        "total_pred_vs_actual": 0.5269009002822785
+      },
+      "gbm_poisson": {
+        "spearman": 0.35498737604448033,
+        "top10_share": 0.6441937045385647,
+        "top1_share": 0.23046895220667993,
+        "norm_gini": 0.5969557400874441,
+        "total_pred_vs_actual": 0.9908899230005953
+      },
+      "gbm_ggr_direct": {
+        "spearman": 0.34924324068683776,
+        "top10_share": 0.6344595849421978,
+        "top1_share": 0.2535018136477342,
+        "norm_gini": 0.565770028513698,
+        "total_pred_vs_actual": 0.9970850269646762
+      }
+    },
+    "retention_90d": {
+      "base_rate": 0.43738938589473175,
+      "auc_gbm": 0.8633761687536365,
+      "auc_recency_only": 0.8504535485865998,
+      "auc_bgnbd_p_alive": 0.6846530437533709
+    },
+    "bgnbd_active_days_pred_vs_actual": 0.5975815232442768,
+    "bootstrap_ggr_top10_share": {
+      "gbm_minus_bgnbd": {
+        "diff": 0.052659284038955034,
+        "ci95": [
+          0.029782634043036698,
+          0.0710578386466147
+        ]
+      },
+      "gbm_minus_run_rate": {
+        "diff": 0.0307870634381342,
+        "ci95": [
+          0.011173637627291181,
+          0.049278080010671035
+        ]
+      },
+      "turnover_x_margin_minus_direct_ggr": {
+        "diff": 0.009734119596366941,
+        "ci95": [
+          -0.0075597299666624925,
+          0.025864480850158838
+        ]
+      }
+    },
+    "bootstrap_turnover_gini": {
+      "gbm_minus_run_rate": {
+        "diff": 0.12717184478493448,
+        "ci95": [
+          0.10944559882733634,
+          0.15239672091405196
+        ]
+      },
+      "gbm_minus_bgnbd": {
+        "diff": 0.1621386187648325,
+        "ci95": [
+          0.13798176703821463,
+          0.1893050059167239
+        ]
+      }
+    }
+  },
+  "btyd_params_fold1": {
+    "bgnbd": {
+      "r": 1.0769,
+      "alpha": 3.1022,
+      "a": 1.2805,
+      "b": 22.6276
+    },
+    "gamma_gamma": {
+      "p": 1.5183,
+      "q": 1.0377,
+      "v": 6.7538
+    },
+    "converged": true
+  },
+  "payout_ratio_persistence_spearman": 0.20431367369760994,
+  "stake_level_persistence_spearman": 0.5829458794204644,
+  "out_of_time": {
+    "players": 2209,
+    "turnover": {
+      "run_rate": {
+        "spearman": 0.44541603970847116,
+        "top10_share": 0.5660911820501006,
+        "top1_share": 0.2555734007873162,
+        "norm_gini": 0.5638235122842558,
+        "total_pred_vs_actual": 1.1005766316809895
+      },
+      "bgnbd_gamma_gamma": {
+        "spearman": 0.2514870351670758,
+        "top10_share": 0.5261543919512204,
+        "top1_share": 0.2184782903602243,
+        "norm_gini": 0.42335397268760566,
+        "total_pred_vs_actual": 0.4354659858866915
+      },
+      "gbm_poisson": {
+        "spearman": 0.3697851039656975,
+        "top10_share": 0.6785547503383234,
+        "top1_share": 0.2065694024859642,
+        "norm_gini": 0.7785621313205557,
+        "total_pred_vs_actual": 1.052109458964469
+      }
+    },
+    "ggr": {
+      "run_rate": {
+        "spearman": 0.3044385557545588,
+        "top10_share": 0.546238431473263,
+        "top1_share": 0.282646882426393,
+        "norm_gini": 0.39401669990366334,
+        "total_pred_vs_actual": 1.169156299663035
+      },
+      "bgnbd_gamma_gamma": {
+        "spearman": 0.15735643303246258,
+        "top10_share": 0.5295812469691816,
+        "top1_share": 0.25649550095325446,
+        "norm_gini": 0.33178925691711214,
+        "total_pred_vs_actual": 0.476798123284558
+      },
+      "gbm_poisson": {
+        "spearman": 0.3083834583994364,
+        "top10_share": 0.6075467993264635,
+        "top1_share": 0.260414395888602,
+        "norm_gini": 0.5805968719640376,
+        "total_pred_vs_actual": 1.1887376640704195
+      },
+      "gbm_ggr_direct": {
+        "spearman": 0.3084630950275645,
+        "top10_share": 0.5369588721292453,
+        "top1_share": 0.24738630468485567,
+        "norm_gini": 0.4321487841167862,
+        "total_pred_vs_actual": 1.0750144646162423
+      }
+    },
+    "retention_90d": {
+      "base_rate": 0.5350837483023992,
+      "auc_gbm": 0.7691236776246093,
+      "auc_recency_only": 0.7809931346042636,
+      "auc_bgnbd_p_alive": 0.5707513052819227
+    },
+    "bgnbd_active_days_pred_vs_actual": 0.4267917157109202,
+    "train_players": 39038
+  }
+}
