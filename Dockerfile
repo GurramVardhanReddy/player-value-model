@@ -1,4 +1,5 @@
-FROM python:3.12-slim
+# bookworm: newer Debian releases no longer ship Java 17, which Spark 3.5 supports
+FROM python:3.12-slim-bookworm
 
 # Spark needs a Java runtime
 RUN apt-get update \
