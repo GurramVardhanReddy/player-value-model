@@ -7,3 +7,4 @@ results/run_log.txt
 spark-warehouse/
 metastore_db/
 derby.log
+results/features.parquet

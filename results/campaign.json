@@ -1,0 +1,414 @@
+{
+  "split": {
+    "train_players": 39038,
+    "test_players": 2209,
+    "test_first_stake_from": "2005-04-01"
+  },
+  "house_margin_train": 0.0938,
+  "churn_model": {
+    "test_churn_rate": 0.4649,
+    "auc": 0.768,
+    "brier": 0.1997,
+    "brier_base_rate": 0.2488,
+    "calibration_deciles": [
+      {
+        "bin": 0,
+        "mean_predicted": 0.0168,
+        "actual_rate": 0.0317,
+        "players": 221
+      },
+      {
+        "bin": 1,
+        "mean_predicted": 0.0869,
+        "actual_rate": 0.1312,
+        "players": 221
+      },
+      {
+        "bin": 2,
+        "mean_predicted": 0.1947,
+        "actual_rate": 0.2986,
+        "players": 221
+      },
+      {
+        "bin": 3,
+        "mean_predicted": 0.2919,
+        "actual_rate": 0.4208,
+        "players": 221
+      },
+      {
+        "bin": 4,
+        "mean_predicted": 0.3822,
+        "actual_rate": 0.5227,
+        "players": 220
+      },
+      {
+        "bin": 5,
+        "mean_predicted": 0.4623,
+        "actual_rate": 0.5113,
+        "players": 221
+      },
+      {
+        "bin": 6,
+        "mean_predicted": 0.5628,
+        "actual_rate": 0.5928,
+        "players": 221
+      },
+      {
+        "bin": 7,
+        "mean_predicted": 0.6809,
+        "actual_rate": 0.6561,
+        "players": 221
+      },
+      {
+        "bin": 8,
+        "mean_predicted": 0.7924,
+        "actual_rate": 0.6425,
+        "players": 221
+      },
+      {
+        "bin": 9,
+        "mean_predicted": 0.9067,
+        "actual_rate": 0.8416,
+        "players": 221
+      }
+    ]
+  },
+  "assumptions_base": {
+    "bonus_rate": 0.2,
+    "offer_cost": 10.0,
+    "uplift": 0.1
+  },
+  "budget": {
+    "share": 0.1,
+    "players_targeted": 221
+  },
+  "policies_base": {
+    "random": {
+      "targeted": 221,
+      "actual_churn_rate": 0.4706,
+      "share_of_churned_value_reached": 0.0841,
+      "share_of_churners_observed_ggr90_reached": 0.0833,
+      "share_winning_players_90d": 0.1493,
+      "simulated_incremental_ngr": -1132.95,
+      "simulated_roi": -0.513
+    },
+    "churn_risk": {
+      "targeted": 221,
+      "actual_churn_rate": 0.8416,
+      "share_of_churned_value_reached": 0.2014,
+      "share_of_churners_observed_ggr90_reached": 0.107,
+      "share_winning_players_90d": 0.0679,
+      "simulated_incremental_ngr": 368.5,
+      "simulated_roi": 0.167
+    },
+    "value": {
+      "targeted": 221,
+      "actual_churn_rate": 0.3167,
+      "share_of_churned_value_reached": 0.3832,
+      "share_of_churners_observed_ggr90_reached": 0.2596,
+      "share_winning_players_90d": 0.1493,
+      "simulated_incremental_ngr": 2695.78,
+      "simulated_roi": 1.22
+    },
+    "expected_incremental_ngr": {
+      "targeted": 221,
+      "actual_churn_rate": 0.6697,
+      "share_of_churned_value_reached": 0.4961,
+      "share_of_churners_observed_ggr90_reached": 0.3832,
+      "share_winning_players_90d": 0.0679,
+      "simulated_incremental_ngr": 4141.26,
+      "simulated_roi": 1.874
+    }
+  },
+  "bootstrap_observed_reach_diff": {
+    "expected_incremental_ngr_minus_churn_risk": {
+      "mean": 0.2732,
+      "ci95": [
+        0.1867,
+        0.3527
+      ]
+    },
+    "expected_incremental_ngr_minus_value": {
+      "mean": 0.1203,
+      "ci95": [
+        0.059,
+        0.1804
+      ]
+    }
+  },
+  "sensitivity": [
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 5.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -499.16,
+      "churn_risk_incremental_ngr": 345.41,
+      "value_incremental_ngr": 1654.5,
+      "expected_incremental_ngr_incremental_ngr": 2467.59
+    },
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 5.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": 106.68,
+      "churn_risk_incremental_ngr": 1795.81,
+      "value_incremental_ngr": 4414.0,
+      "expected_incremental_ngr_incremental_ngr": 6040.17
+    },
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 5.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": 1318.36,
+      "churn_risk_incremental_ngr": 4696.62,
+      "value_incremental_ngr": 9933.0,
+      "expected_incremental_ngr_incremental_ngr": 13185.34
+    },
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 10.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -1604.16,
+      "churn_risk_incremental_ngr": -759.59,
+      "value_incremental_ngr": 549.5,
+      "expected_incremental_ngr_incremental_ngr": 1362.59
+    },
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 10.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -998.32,
+      "churn_risk_incremental_ngr": 690.81,
+      "value_incremental_ngr": 3309.0,
+      "expected_incremental_ngr_incremental_ngr": 4935.17
+    },
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 10.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": 213.36,
+      "churn_risk_incremental_ngr": 3591.62,
+      "value_incremental_ngr": 8828.0,
+      "expected_incremental_ngr_incremental_ngr": 12080.34
+    },
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 20.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -3814.16,
+      "churn_risk_incremental_ngr": -2969.59,
+      "value_incremental_ngr": -1660.5,
+      "expected_incremental_ngr_incremental_ngr": -847.41
+    },
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 20.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -3208.32,
+      "churn_risk_incremental_ngr": -1519.19,
+      "value_incremental_ngr": 1099.0,
+      "expected_incremental_ngr_incremental_ngr": 2725.17
+    },
+    {
+      "bonus_rate": 0.1,
+      "offer_cost": 20.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -1996.64,
+      "churn_risk_incremental_ngr": 1381.62,
+      "value_incremental_ngr": 6618.0,
+      "expected_incremental_ngr_incremental_ngr": 9870.34
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 5.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -566.48,
+      "churn_risk_incremental_ngr": 184.25,
+      "value_incremental_ngr": 1347.89,
+      "expected_incremental_ngr_incremental_ngr": 2070.63
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 5.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -27.95,
+      "churn_risk_incremental_ngr": 1473.5,
+      "value_incremental_ngr": 3800.78,
+      "expected_incremental_ngr_incremental_ngr": 5246.26
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 5.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": 1049.09,
+      "churn_risk_incremental_ngr": 4052.0,
+      "value_incremental_ngr": 8706.55,
+      "expected_incremental_ngr_incremental_ngr": 11597.53
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 10.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -1671.48,
+      "churn_risk_incremental_ngr": -920.75,
+      "value_incremental_ngr": 242.89,
+      "expected_incremental_ngr_incremental_ngr": 965.63
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 10.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -1132.95,
+      "churn_risk_incremental_ngr": 368.5,
+      "value_incremental_ngr": 2695.78,
+      "expected_incremental_ngr_incremental_ngr": 4141.26
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 10.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -55.91,
+      "churn_risk_incremental_ngr": 2947.0,
+      "value_incremental_ngr": 7601.55,
+      "expected_incremental_ngr_incremental_ngr": 10492.53
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 20.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -3881.48,
+      "churn_risk_incremental_ngr": -3130.75,
+      "value_incremental_ngr": -1967.11,
+      "expected_incremental_ngr_incremental_ngr": -1244.37
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 20.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -3342.95,
+      "churn_risk_incremental_ngr": -1841.5,
+      "value_incremental_ngr": 485.78,
+      "expected_incremental_ngr_incremental_ngr": 1931.26
+    },
+    {
+      "bonus_rate": 0.2,
+      "offer_cost": 20.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -2265.91,
+      "churn_risk_incremental_ngr": 737.0,
+      "value_incremental_ngr": 5391.55,
+      "expected_incremental_ngr_incremental_ngr": 8282.53
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 5.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -633.79,
+      "churn_risk_incremental_ngr": 23.09,
+      "value_incremental_ngr": 1041.28,
+      "expected_incremental_ngr_incremental_ngr": 1673.68
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 5.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -162.58,
+      "churn_risk_incremental_ngr": 1151.19,
+      "value_incremental_ngr": 3187.56,
+      "expected_incremental_ngr_incremental_ngr": 4452.36
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 5.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": 779.83,
+      "churn_risk_incremental_ngr": 3407.37,
+      "value_incremental_ngr": 7480.11,
+      "expected_incremental_ngr_incremental_ngr": 10009.71
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 10.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -1738.79,
+      "churn_risk_incremental_ngr": -1081.91,
+      "value_incremental_ngr": -63.72,
+      "expected_incremental_ngr_incremental_ngr": 568.68
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 10.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -1267.58,
+      "churn_risk_incremental_ngr": 46.19,
+      "value_incremental_ngr": 2082.56,
+      "expected_incremental_ngr_incremental_ngr": 3347.36
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 10.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -325.17,
+      "churn_risk_incremental_ngr": 2302.37,
+      "value_incremental_ngr": 6375.11,
+      "expected_incremental_ngr_incremental_ngr": 8904.71
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 20.0,
+      "uplift": 0.05,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -3948.79,
+      "churn_risk_incremental_ngr": -3291.91,
+      "value_incremental_ngr": -2273.72,
+      "expected_incremental_ngr_incremental_ngr": -1641.32
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 20.0,
+      "uplift": 0.1,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -3477.58,
+      "churn_risk_incremental_ngr": -2163.81,
+      "value_incremental_ngr": -127.44,
+      "expected_incremental_ngr_incremental_ngr": 1137.36
+    },
+    {
+      "bonus_rate": 0.3,
+      "offer_cost": 20.0,
+      "uplift": 0.2,
+      "best_policy": "expected_incremental_ngr",
+      "random_incremental_ngr": -2535.17,
+      "churn_risk_incremental_ngr": 92.37,
+      "value_incremental_ngr": 4165.11,
+      "expected_incremental_ngr_incremental_ngr": 6694.71
+    }
+  ],
+  "sensitivity_best_policy_counts": {
+    "expected_incremental_ngr": 27
+  }
+}

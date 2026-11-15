@@ -68,6 +68,46 @@ who started in April to June 2005. The ranking held up: gradient boosting's top 
   its actual GGR (1.05×), and every decile's GGR forecast falls between 0.73× and 1.05× of actual
   (`results/deciles_gbm_cv5.csv`).
 
+## Retention campaign targeting (NGR, churn and value)
+
+Operators value players on **NGR** (net gaming revenue: GGR minus bonus and promotion cost) and
+spend retention budget on players who are both likely to leave and worth keeping.
+`campaign.py` adds that step, out-of-time: models are trained on players who started in
+February-March 2005 (39,038) and applied to those who started in April-June 2005 (2,209).
+
+- **Churn model** (no bet in days 90 to 179): AUC 0.768, Brier score 0.200 (0.249 for predicting
+  the base rate). Calibration drifts out-of-time: the later cohort churned less (46.5%) than the
+  training cohort (56.8%), and the model overstates the riskiest decile (0.91 predicted vs 0.84
+  actual), so probabilities should be recalibrated on recent players before setting budgets.
+- **Value if retained**: next-year turnover of players who stayed (gradient boosting, Poisson
+  loss), times the training cohort's house margin (9.4%), times (1 - bonus rate).
+- **Policies**, each targeting 10% of the cohort (221 players): random, highest churn risk,
+  highest value, and highest expected incremental NGR (churn probability x NGR if retained).
+
+| Policy | Actually churned | Share of churners' real 90-day GGR reached | Winning players targeted |
+|---|---|---|---|
+| Random | 47.1% | 8.3% | 14.9% |
+| Highest churn risk | 84.2% | 10.7% | 6.8% |
+| Highest value | 31.7% | 26.0% | 14.9% |
+| **Churn risk x value** | 67.0% | **38.3%** | 6.8% |
+
+The middle column is model-free: the first-90-day GGR the operator actually earned from players
+who then churned, the value it has seen and then lost. Churn x value reaches 27.3 points more of
+it than churn risk alone (paired bootstrap 95% CI +18.7 to +35.3) and 12.0 points more than value
+alone (+5.9 to +18.0). Targeting only by churn finds churners, but mostly low-value ones; targeting
+only by value spends on players who were staying anyway and on more winning (sharp) players.
+
+**Campaign return is simulated, not measured.** The data has no bonus or campaign records, so
+three inputs are assumptions: bonus cost (10%, 20%, 30% of GGR), offer cost (5, 10, 20 per
+player) and uplift (the offer keeps 5%, 10% or 20% of targeted players who would have churned).
+Churn x value gave the highest simulated incremental NGR in all 27 combinations; at 20%, 10 and
+10% it returns 1.87 per unit spent, against 1.22 for value alone, 0.17 for churn risk alone and
+-0.51 for random targeting. The real uplift can only be measured with a randomised holdout, which
+is what the [experimentation toolkit](https://github.com/GurramVardhanReddy/experimentation-toolkit)
+is for.
+
+Results: `results/campaign.json`.
+
 ## How it works
 
 ```
@@ -97,13 +137,15 @@ data/raw/ (3 CSVs)  ->  pvm/spark_features.py + pvm/sql/features.sql   (PySpark,
 scripts/fetch_data.sh data/raw          # about 90 MB from the Transparency Project
 pip install -e ".[dev]"                 # needs Java 17 for Spark
 python run.py --data data/raw --out results
+python campaign.py --features results/features.parquet   # retention targeting
 pytest -q && ruff check .
 ```
 
 Or with Docker: `docker build -t player-value-model . && docker run -v "$PWD/results:/app/results" player-value-model`.
 
-Tests (9) cover the Spark SQL features on a hand-made dataset (day 0, windows, gaps, targets,
-settlement-only days), BG/NBD parameter recovery, Gamma-Gamma shrinkage and the metrics. GitHub
+Tests (12) cover the Spark SQL features on a hand-made dataset (day 0, windows, gaps, targets,
+settlement-only days), BG/NBD parameter recovery, Gamma-Gamma shrinkage, the metrics and the
+campaign policies. GitHub
 Actions runs ruff, the tests (with Java 17 for Spark) and a Docker build on every push.
 
 ## Limits

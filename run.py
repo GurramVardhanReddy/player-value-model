@@ -133,6 +133,8 @@ def main() -> None:
 
     spark = spark_session()
     feats = build_features(spark, args.data).toPandas()
+    args.out.mkdir(parents=True, exist_ok=True)
+    feats.to_parquet(args.out / "features.parquet", index=False)  # input for campaign.py
     product = spark.sql(PRODUCT_SQL).toPandas()
     spark.stop()
 
